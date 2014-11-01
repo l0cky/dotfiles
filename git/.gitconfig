@@ -2,3 +2,6 @@
   name = breki
   email = berki.csaba.jozsef@gmail.com
 
+[core]
+  editor = vim
+
