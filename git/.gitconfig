@@ -7,8 +7,17 @@
 
 [alias]
   st = status
+  br = branch
   ci = commit
+  cim = commit -m
+  cam = commit -am
   co = checkout
+  cob = checkout -b
   df = diff
   dc = diff --cached
   lp = log -p
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  ss = stash save
+  sl = stash list
+  sa = stash apply
