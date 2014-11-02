@@ -1,6 +1,18 @@
---------
+---------
+Git 0.2.0
+---------
+  - Aliases:    stash apply
+                stash list
+                stash apply
+                reset HEAD --
+                log -1 HEAD
+                commit -m
+                commit -am
+                checkout -b
+
+---------
 Git 0.1.0
---------
+---------
   - User data:  name
                 e-mail
   - Core data:  editor
