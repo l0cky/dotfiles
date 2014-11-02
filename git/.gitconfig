@@ -1,0 +1,14 @@
+[user]
+  name = breki
+  email = berki.csaba.jozsef@gmail.com
+
+[core]
+  editor = vim
+
+[Aliases]
+  st = status
+  ci = commit
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lp = log -p
