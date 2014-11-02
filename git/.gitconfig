@@ -5,3 +5,10 @@
 [core]
   editor = vim
 
+[Aliases]
+  st = status
+  ci = commit
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lp = log -p
