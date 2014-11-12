@@ -1,6 +1,14 @@
---------
+---------
+Git 0.2.0
+---------
+  - Windows install bash shell
+  - Add global .gitignore file
+  - Add diff and merge tool vimdiff
+  - Add line endings formation
+
+---------
 Git 0.1.0
---------
+---------
   - User data:  name
                 e-mail
   - Core data:  editor
