@@ -5,6 +5,12 @@
 [core]
   editor = vim
 
+[diff]
+  tool = vimdiff
+
+[merge]
+  tool = vimdiff
+
 [alias]
   st = status
   br = branch
