@@ -38,3 +38,4 @@
   sl = "stash list"
   sa = "stash apply"
   mt = "mergetool"
+  pretty-log = log --graph --pretty=format:\"%Cred%h%Creset\n-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\"
