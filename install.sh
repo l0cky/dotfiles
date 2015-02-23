@@ -8,4 +8,8 @@ else
   printf "Stow is installed in your computer.\n"
 fi
 
+# Link git configs
+
+stow -v git
+
 exit 0
