@@ -1,2 +1,3 @@
 *.swp       # Vim swap files
 ~*          # Microsoft office temp files
+*~          # Some other temp files
