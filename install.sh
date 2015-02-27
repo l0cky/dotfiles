@@ -1,15 +1,19 @@
 #!/bin/bash
 
-# You have installed stow or not?
 
-if [[ $(dpkg-query -l 'stow' | grep -o '^ii') -ne 'ii' ]]; then
-  printf "Stow is not installed in your computer.\nPlease install it first.\n"
+## Variables ##
+PROGRAM="stow"
+
+
+## Main ##
+# You have installed stow or not?
+if [[ $(whereis ${PROGRAM} | grep -o "/bin/${PROGRAM}") == "/bin/${PROGRAM}" ]]; then
+  printf "${PROGRAM} is installed in your system.\n"
 else
-  printf "Stow is installed in your computer.\n"
+  printf "${PROGRAM} is not installed in your system.\nPlease install ${PROGRAM} first.\n"
 fi
 
 # Link git configs
-
 stow -v git
 
 exit 0
