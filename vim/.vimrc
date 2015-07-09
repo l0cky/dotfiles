@@ -58,11 +58,14 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 "}
 
 " Status line {
-    " Vim-airline {
-"   Plug 'bling/vim-airline'
-
+" vim
     " Lightline
     Plug 'itchyny/lightline.vim'
+
+" tmux
+    " tmuxline
+    Plug 'edkolev/tmuxline.vim'
+"}
 
 " Vim-fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
@@ -311,3 +314,13 @@ augroup reload_vimrc
 augroup END
 " }
 
+" tmuxline conf
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '',
+      \'c'    : '#(whoami)@#H',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'x'    : '#W',
+      \'y'    : ['%Y:%m:%d', '%A', '%R'],
+      \'z'    : ''}
