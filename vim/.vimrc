@@ -65,6 +65,10 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 " tmux
     " tmuxline
     Plug 'edkolev/tmuxline.vim'
+
+" shell prompt
+	" promptline
+	Plug 'edkolev/promptline.vim'
 "}
 
 " Vim-fugitive - Git wrapper
@@ -314,7 +318,7 @@ augroup reload_vimrc
 augroup END
 " }
 
-" tmuxline conf
+" tmuxline conf {
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '',
@@ -324,3 +328,19 @@ let g:tmuxline_preset = {
       \'x'    : '#W',
       \'y'    : ['%Y:%m:%d', '%A', '%R'],
       \'z'    : ''}
+" }
+
+" promptline conf {
+let g:promptline_theme = 'jelly'
+let g:promptline_preset = {
+      \'c' : [ promptline#slices#user() ],
+      \'b' : [ promptline#slices#cwd() ],
+      \'a' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+      \'x' : [ promptline#slices#jobs() ],
+      \'warn' : [ promptline#slices#last_exit_code(), ],
+      \'y' : [ '\$' ],
+      \'options': {
+        \'left_only_sections': [ 'c', 'a', 'b', 'x', 'y', 'warn' ] }}
+
+
+
