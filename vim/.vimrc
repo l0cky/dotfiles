@@ -318,15 +318,16 @@ augroup END
 " }
 
 " tmuxline conf {
+let g:tmuxline_theme = 'iceberg'
 let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '',
-      \'c'    : '#(whoami)@#H',
+      \'a'    : '#(whoami)',
+      \'b'    : '#S',
+      \'c'    : '',
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
       \'x'    : '#W',
       \'y'    : ['%Y:%m:%d', '%A', '%R'],
-      \'z'    : ''}
+      \'z'    : '#H'}
 " }
 
 " promptline conf {
