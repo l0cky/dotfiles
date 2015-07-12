@@ -50,7 +50,7 @@ Plug 'junegunn/goyo.vim'
 "}
 
 " Editorconfig {
-Plug 'https://github.com/editorconfig/editorconfig-vim.git'
+ Plug 'editorconfig/editorconfig-vim'
 "}
 
 " Windows-on full screen,
@@ -163,7 +163,6 @@ call EnsureDirExists($HOME . '/.vim/vimundo')
 set undodir=~/.vim/vimundo
 
 set laststatus=2
-
 
 if has("win32")
     call plug#load('vim-misc', 'vim-shell')
