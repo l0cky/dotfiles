@@ -50,7 +50,7 @@ Plug 'junegunn/goyo.vim'
 "}
 
 " Editorconfig {
-Plug 'https://github.com/editorconfig/editorconfig-vim.git'
+ Plug 'editorconfig/editorconfig-vim'
 "}
 
 " Windows-on full screen,
@@ -134,7 +134,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set nowrap
+set wrap
 set ignorecase
 set smartcase
 set incsearch
@@ -163,7 +163,6 @@ call EnsureDirExists($HOME . '/.vim/vimundo')
 set undodir=~/.vim/vimundo
 
 set laststatus=2
-
 
 if has("win32")
     call plug#load('vim-misc', 'vim-shell')
@@ -319,15 +318,16 @@ augroup END
 " }
 
 " tmuxline conf {
+let g:tmuxline_theme = 'iceberg'
 let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '',
-      \'c'    : '#(whoami)@#H',
+      \'a'    : '#(whoami)',
+      \'b'    : '#S',
+      \'c'    : '',
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
       \'x'    : '#W',
       \'y'    : ['%Y:%m:%d', '%A', '%R'],
-      \'z'    : ''}
+      \'z'    : '#H'}
 " }
 
 " promptline conf {
