@@ -331,16 +331,27 @@ let g:tmuxline_preset = {
 " }
 
 " promptline conf {
+let is_direnv_slice = {
+      \'function_name': 'is_direnv',
+      \'function_body': [
+        \'function is_direnv {',
+        \'  local in_direnv="⋯"',
+        \'  if [ ! -z $DIRENV_DIR ];then',
+        \'    printf "%s" "$in_direnv"',
+        \'  fi',
+        \'}']}
+
 let g:promptline_theme = 'jelly'
 let g:promptline_preset = {
       \'c' : [ promptline#slices#user() ],
       \'b' : [ promptline#slices#cwd() ],
       \'a' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
       \'x' : [ promptline#slices#jobs() ],
+      \'z' : [ is_direnv_slice ],
       \'warn' : [ promptline#slices#last_exit_code(), ],
       \'y' : [ '\$' ],
       \'options': {
-        \'left_only_sections': [ 'c', 'a', 'b', 'x', 'y', 'warn' ] }}
+        \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
 
 
 
