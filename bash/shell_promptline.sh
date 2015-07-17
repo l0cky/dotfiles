@@ -30,6 +30,12 @@ function __promptline_ps1 {
   # section "b" slices
   __promptline_wrapper "$(__promptline_cwd)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
 
+  # section "z" header
+  slice_prefix="${z_bg}${sep}${z_fg}${z_bg}${space}" slice_suffix="$space${z_sep_fg}" slice_joiner="${z_fg}${z_bg}${alt_sep}${space}" slice_empty_prefix="${z_fg}${z_bg}${space}"
+  [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
+  # section "z" slices
+  __promptline_wrapper "$(is_direnv)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
+
   # section "x" header
   slice_prefix="${x_bg}${sep}${x_fg}${x_bg}${space}" slice_suffix="$space${x_sep_fg}" slice_joiner="${x_fg}${x_bg}${alt_sep}${space}" slice_empty_prefix="${x_fg}${x_bg}${space}"
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
@@ -95,6 +101,19 @@ function __promptline_cwd {
 
   printf "%s" "$first_char$formatted_cwd"
 }
+function is_direnv {
+  local in_direnv="⋯"
+  if [ ! -z $DIRENV_DIR ];then
+    printf "%s" "$in_direnv"
+  fi
+}
+function __promptline_wrapper {
+  # wrap the text in $1 with $2 and $3, only if $1 is not empty
+  # $2 and $3 typically contain non-content-text, like color escape codes and separators
+
+  [[ -n "$1" ]] || return 1
+  printf "%s" "${2}${1}${3}"
+}
 function __promptline_left_prompt {
   local slice_prefix slice_empty_prefix slice_joiner slice_suffix is_prompt_empty=1
 
@@ -119,13 +138,6 @@ function __promptline_left_prompt {
 
   # close sections
   printf "%s" "${reset_bg}${sep}$reset$space"
-}
-function __promptline_wrapper {
-  # wrap the text in $1 with $2 and $3, only if $1 is not empty
-  # $2 and $3 typically contain non-content-text, like color escape codes and separators
-
-  [[ -n "$1" ]] || return 1
-  printf "%s" "${2}${1}${3}"
 }
 function __promptline_git_status {
   [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == true ]] || return 1
@@ -194,6 +206,11 @@ function __promptline_right_prompt {
   # section "y" slices
   __promptline_wrapper "\$" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; }
 
+  # section "z" header
+  slice_prefix="${z_sep_fg}${rsep}${z_fg}${z_bg}${space}" slice_suffix="$space${z_sep_fg}" slice_joiner="${z_fg}${z_bg}${alt_rsep}${space}" slice_empty_prefix=""
+  # section "z" slices
+  __promptline_wrapper "$(is_direnv)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; }
+
   # close sections
   printf "%s" "$reset"
 }
@@ -249,6 +266,9 @@ function __promptline {
   local y_fg="${wrap}38;5;231${end_wrap}"
   local y_bg="${wrap}48;5;240${end_wrap}"
   local y_sep_fg="${wrap}38;5;240${end_wrap}"
+  local z_fg="${wrap}38;5;233${end_wrap}"
+  local z_bg="${wrap}48;5;183${end_wrap}"
+  local z_sep_fg="${wrap}38;5;183${end_wrap}"
   if [[ -n ${ZSH_VERSION-} ]]; then
     PROMPT="$(__promptline_left_prompt)"
     RPROMPT="$(__promptline_right_prompt)"
