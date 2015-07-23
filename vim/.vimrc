@@ -50,7 +50,7 @@ Plug 'junegunn/goyo.vim'
 "}
 
 " Editorconfig {
-Plug 'https://github.com/editorconfig/editorconfig-vim.git'
+ Plug 'editorconfig/editorconfig-vim'
 "}
 
 " Windows-on full screen,
@@ -65,6 +65,10 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 " tmux
     " tmuxline
     Plug 'edkolev/tmuxline.vim'
+
+" shell prompt
+	" promptline
+	Plug 'edkolev/promptline.vim'
 "}
 
 " Vim-fugitive - Git wrapper
@@ -130,7 +134,7 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set nowrap
+set wrap
 set ignorecase
 set smartcase
 set incsearch
@@ -159,7 +163,6 @@ call EnsureDirExists($HOME . '/.vim/vimundo')
 set undodir=~/.vim/vimundo
 
 set laststatus=2
-
 
 if has("win32")
     call plug#load('vim-misc', 'vim-shell')
@@ -314,13 +317,41 @@ augroup reload_vimrc
 augroup END
 " }
 
-" tmuxline conf
+" tmuxline conf {
+let g:tmuxline_theme = 'iceberg'
 let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '',
-      \'c'    : '#(whoami)@#H',
+      \'a'    : '#(whoami)',
+      \'b'    : '#S',
+      \'c'    : '',
       \'win'  : ['#I', '#W'],
       \'cwin' : ['#I', '#W', '#F'],
       \'x'    : '#W',
       \'y'    : ['%Y:%m:%d', '%A', '%R'],
-      \'z'    : ''}
+      \'z'    : '#H'}
+" }
+
+" promptline conf {
+let is_direnv_slice = {
+      \'function_name': 'is_direnv',
+      \'function_body': [
+        \'function is_direnv {',
+        \'  local in_direnv="⋯"',
+        \'  if [ ! -z $DIRENV_DIR ];then',
+        \'    printf "%s" "$in_direnv"',
+        \'  fi',
+        \'}']}
+
+let g:promptline_theme = 'jelly'
+let g:promptline_preset = {
+      \'c' : [ promptline#slices#user() ],
+      \'b' : [ promptline#slices#cwd() ],
+      \'a' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+      \'x' : [ promptline#slices#jobs() ],
+      \'z' : [ is_direnv_slice ],
+      \'warn' : [ promptline#slices#last_exit_code(), ],
+      \'y' : [ '\$' ],
+      \'options': {
+        \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
+
+
+
