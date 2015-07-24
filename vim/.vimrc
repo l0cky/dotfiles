@@ -36,7 +36,6 @@ call plug#begin('$HOME/.vim/plugged')
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -91,6 +90,21 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 
 " Vim-fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
+
+" Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
+if os =~ 'linux'
+  " For ruby {
+    " rbenv
+    Plug 'sstephenson/rbenv', {'dir': '$HOME/.rbenv' }
+    " ruby-build
+    Plug 'sstephenson/ruby-build', {'dir': '$HOME/.rbenv/plugins/ruby-build' }
+    " rbenv-gem-rehash
+    Plug 'sstephenson/rbenv-gem-rehash', {'dir': '$HOME/.rbenv/plugins/rbenv-gem-rehash' }
+  "}
+
+  " fzf command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
+endif
 
 call plug#end()
 
