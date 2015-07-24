@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# for rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# for ruby-build
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+# for the nice promptline
+[ -f "$HOME/.dotfiles/bash/shell_promptline.sh" ] && source "$HOME/.dotfiles/bash/shell_promptline.sh"
+
+# for direnv
+eval "$(direnv hook bash)"
