@@ -70,8 +70,8 @@ Plug 'junegunn/goyo.vim'
  Plug 'editorconfig/editorconfig-vim'
 "}
 
-" Windows-on full screen,
-Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
+" GUI full screen option {
+Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 "}
 
 " Status line {
@@ -196,13 +196,9 @@ set undodir=~/.vim/vimundo
 
 set laststatus=2
 
-if has("win32")
-    call plug#load('vim-misc', 'vim-shell')
-endif
-
-
 " GUI options {
 if has("gui_running")
+    call plug#load('vim-misc', 'vim-shell')
     set guioptions-=m    " remove menu bar
     set guioptions-=T    " remove toolbar
     set guioptions-=r    " remove right-hand scroll bar
