@@ -12,13 +12,30 @@ if has("unix")
     endif
 endif
 
+" Functions
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    elseif system('uname')=~'Linux'
+      return "linux"
+    elseif system('uname')=~'MINGW64'
+      return "mingw64"
+    endif
+  endif
+endfunction
+let os=GetRunningOS()
+
+
 " vim-plug config
 call plug#begin('$HOME/.vim/plugged')
 
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -73,6 +90,21 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 
 " Vim-fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
+
+" Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
+if os =~ 'linux'
+  " For ruby {
+    " rbenv
+    Plug 'sstephenson/rbenv', {'dir': '$HOME/.rbenv' }
+    " ruby-build
+    Plug 'sstephenson/ruby-build', {'dir': '$HOME/.rbenv/plugins/ruby-build' }
+    " rbenv-gem-rehash
+    Plug 'sstephenson/rbenv-gem-rehash', {'dir': '$HOME/.rbenv/plugins/rbenv-gem-rehash' }
+  "}
+
+  " fzf command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
+endif
 
 call plug#end()
 
@@ -287,21 +319,6 @@ augroup javascript
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
 " }
-
-" Functions
-function! GetRunningOS()
-  if has("win32")
-    return "win"
-  endif
-    if has("unix")
-      if system('uname')=~'Darwin'
-        return "mac"
-      else
-        return "linux"
-      endif
-    endif
-  endfunction
-  let os=GetRunningOS()
 
 " Reload vimrc {
 augroup reload_vimrc
