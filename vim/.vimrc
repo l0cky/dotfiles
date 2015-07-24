@@ -12,6 +12,24 @@ if has("unix")
     endif
 endif
 
+" Functions
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    elseif system('uname')=~'Linux'
+      return "linux"
+    elseif system('uname')=~'MINGW64'
+      return "mingw64"
+    endif
+  endif
+endfunction
+let os=GetRunningOS()
+
+
 " vim-plug config
 call plug#begin('$HOME/.vim/plugged')
 
@@ -287,21 +305,6 @@ augroup javascript
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
 " }
-
-" Functions
-function! GetRunningOS()
-  if has("win32")
-    return "win"
-  endif
-    if has("unix")
-      if system('uname')=~'Darwin'
-        return "mac"
-      else
-        return "linux"
-      endif
-    endif
-  endfunction
-  let os=GetRunningOS()
 
 " Reload vimrc {
 augroup reload_vimrc
