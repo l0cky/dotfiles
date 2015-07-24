@@ -70,8 +70,8 @@ Plug 'junegunn/goyo.vim'
  Plug 'editorconfig/editorconfig-vim'
 "}
 
-" Windows-on full screen,
-Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
+" GUI full screen option {
+Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 "}
 
 " Status line {
