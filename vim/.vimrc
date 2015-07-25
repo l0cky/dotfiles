@@ -203,9 +203,8 @@ if has("gui_running")
     set guioptions-=T    " remove toolbar
     set guioptions-=r    " remove right-hand scroll bar
     set guioptions-=L    " remove left-hand scroll bar
-"	set background=dark
-"	highlight Normal guibg=black guifg=white
-"    let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
+    set background=dark
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
     if has('gui_win32')                    " Ha Windowson futó grafikus felület esetén
         let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
         au GUIEnter * simalt ~m              " Maximalizálva induljon az ablak
