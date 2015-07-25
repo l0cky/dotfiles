@@ -317,15 +317,9 @@ augroup END
 
 " Reload vimrc {
 augroup reload_vimrc
-  if os =~ 'win'
-    autocmd!
-    autocmd bufwritepost $HOME/_vimrc nested source %  " When vimrc is editied, reload it
-    set nobackup                                  " Don't make backups
-  elseif os =~ 'linux'
-    autocmd!
-    autocmd bufwritepost .vimrc nested source %         " When vimrc is editied, reload it
-    set nobackup                                  " Don't make backups
-  endif
+  autocmd!
+  autocmd bufwritepost $HOME/.vimrc nested source %  " When vimrc is editied, reload it
+  set nobackup                                       " Don't make backups
 augroup END
 " }
 
