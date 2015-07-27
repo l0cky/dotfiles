@@ -67,7 +67,7 @@ Plug 'junegunn/goyo.vim'
 "}
 
 " limelight.vim, hyperfocus-writing in Vim
-Plug 'junegunn/limelight'
+Plug 'junegunn/limelight.vim'
 
 " Editorconfig {
  Plug 'editorconfig/editorconfig-vim'
