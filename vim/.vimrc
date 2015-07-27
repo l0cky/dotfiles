@@ -96,7 +96,7 @@ Plug 'tpope/vim-fugitive'
 
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
-Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins' }
+Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins/bashmarks' }
 
 if os =~ 'linux'
   " For ruby {
