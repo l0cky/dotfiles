@@ -95,6 +95,9 @@ Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 Plug 'tpope/vim-fugitive'
 
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
+" huyng/bashmarks
+Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins' }
+
 if os =~ 'linux'
   " For ruby {
     " rbenv
