@@ -5,11 +5,11 @@ let &rtp='$HOME/.vim'.','.&rtp
 " If the system is Linux
 " Install the vim-plug if it doesn't exist
 if has("unix")
-    if empty(glob('$HOME/.vim/autoload/plug.vim'))
-        silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
-            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall
-    endif
+  if empty(glob('$HOME/.vim/autoload/plug.vim'))
+    silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
 endif
 
 " Functions
@@ -78,17 +78,17 @@ Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 "}
 
 " Status line {
-" vim
+  " vim
     " Lightline
     Plug 'itchyny/lightline.vim'
 
-" tmux
+  " tmux
     " tmuxline
     Plug 'edkolev/tmuxline.vim'
 
-" shell prompt
-	" promptline
-	Plug 'edkolev/promptline.vim'
+  " shell prompt
+    " promptline
+    Plug 'edkolev/promptline.vim'
 "}
 
 " Vim-fugitive - Git wrapper
@@ -114,15 +114,15 @@ call plug#end()
 " Functions {
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 " EnsureDirExists
@@ -148,7 +148,7 @@ scriptencoding utf-8
 set encoding=utf-8  " use utf-8 encoding
 
 try                 " A magyar nyelv beállítása ha lehetséges
-    lang hu_HU
+  lang hu_HU
 catch
 endtry
 
@@ -201,18 +201,18 @@ set laststatus=2
 
 " GUI options {
 if has("gui_running")
-    call plug#load('vim-misc', 'vim-shell')
-    set guioptions-=m    " remove menu bar
-    set guioptions-=T    " remove toolbar
-    set guioptions-=r    " remove right-hand scroll bar
-    set guioptions-=L    " remove left-hand scroll bar
-    set background=dark
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
-    if has('gui_win32')                    " Ha Windowson futó grafikus felület esetén
-        let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
-        au GUIEnter * simalt ~m              " Maximalizálva induljon az ablak
-    endif
-   endif
+  call plug#load('vim-misc', 'vim-shell')
+  set guioptions-=m    " remove menu bar
+  set guioptions-=T    " remove toolbar
+  set guioptions-=r    " remove right-hand scroll bar
+  set guioptions-=L    " remove left-hand scroll bar
+  set background=dark
+  set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
+  if has('gui_win32')                    " Ha Windowson futó grafikus felület esetén
+    let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
+    au GUIEnter * simalt ~m              " Maximalizálva induljon az ablak
+  endif
+endif
 " }
 
 " Vim-airline config {
@@ -227,20 +227,20 @@ if has("gui_running")
 " }
 
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'filename' ] ]
-    \ },
-    \ 'component_function': {
-    \   'fugitive': 'MyFugitive',
-    \   'readonly': 'MyReadonly',
-    \   'modified': 'MyModified',
-    \   'filename': 'MyFilename'
-    \ },
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-    \ }
+  \ 'colorscheme': 'jellybeans',
+  \ 'active': {
+  \  'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'filename' ] ]
+  \ },
+  \ 'component_function': {
+  \  'fugitive': 'MyFugitive',
+  \  'readonly': 'MyReadonly',
+  \  'modified': 'MyModified',
+  \  'filename': 'MyFilename'
+  \ },
+  \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+  \ }
 
 function! MyModified()
   if &filetype == "help"
@@ -297,24 +297,24 @@ nmap <Leader><Leader> V
 " Specials {
 " Strip Trailing Whitespaces
 augroup StripTrailingWhitespaces
-    autocmd!
-    autocmd BufWritePre *.html,*.php,*.css,*.js :call <SID>StripTrailingWhitespaces()
+  autocmd!
+  autocmd BufWritePre *.html,*.php,*.css,*.js :call <SID>StripTrailingWhitespaces()
 augroup END
 
 " html
 augroup html
-    autocmd!
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd!
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 " CSS
 augroup CSS
-    autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 " Javascript
 augroup javascript
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
 " }
 
@@ -329,38 +329,36 @@ augroup END
 " tmuxline conf {
 let g:tmuxline_theme = 'iceberg'
 let g:tmuxline_preset = {
-      \'a'    : '#(whoami)',
-      \'b'    : '#S',
-      \'c'    : '',
-      \'win'  : ['#I', '#W'],
-      \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : '#W',
-      \'y'    : ['%Y:%m:%d', '%A', '%R'],
-      \'z'    : '#H'}
+  \'a'    : '#(whoami)',
+  \'b'    : '#S',
+  \'c'    : '',
+  \'win'  : ['#I', '#W'],
+  \'cwin' : ['#I', '#W', '#F'],
+  \'x'    : '#W',
+  \'y'    : ['%Y:%m:%d', '%A', '%R'],
+  \'z'    : '#H'}
 " }
 
 " promptline conf {
 let is_direnv_slice = {
-      \'function_name': 'is_direnv',
-      \'function_body': [
-        \'function is_direnv {',
-        \'  local in_direnv="⋯"',
-        \'  if [ ! -z $DIRENV_DIR ];then',
-        \'    printf "%s" "$in_direnv"',
-        \'  fi',
-        \'}']}
+  \'function_name': 'is_direnv',
+  \'function_body': [
+    \'function is_direnv {',
+    \'  local in_direnv="⋯"',
+    \'  if [ ! -z $DIRENV_DIR ];then',
+    \'    printf "%s" "$in_direnv"',
+    \'  fi',
+    \'}']}
 
 let g:promptline_theme = 'jelly'
 let g:promptline_preset = {
-      \'c' : [ promptline#slices#user() ],
-      \'b' : [ promptline#slices#cwd() ],
-      \'a' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
-      \'x' : [ promptline#slices#jobs() ],
-      \'z' : [ is_direnv_slice ],
-      \'warn' : [ promptline#slices#last_exit_code(), ],
-      \'y' : [ '\$' ],
-      \'options': {
-        \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
-
-
+  \'c' : [ promptline#slices#user() ],
+  \'b' : [ promptline#slices#cwd() ],
+  \'a' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+  \'x' : [ promptline#slices#jobs() ],
+  \'z' : [ is_direnv_slice ],
+  \'warn' : [ promptline#slices#last_exit_code(), ],
+  \'y' : [ '\$' ],
+  \'options': {
+    \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
 
