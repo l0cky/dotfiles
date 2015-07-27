@@ -12,13 +12,30 @@ if has("unix")
     endif
 endif
 
+" Functions
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    elseif system('uname')=~'Linux'
+      return "linux"
+    elseif system('uname')=~'MINGW64'
+      return "mingw64"
+    endif
+  endif
+endfunction
+let os=GetRunningOS()
+
+
 " vim-plug config
 call plug#begin('$HOME/.vim/plugged')
 
 " Make sure you use single quotes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -56,8 +73,8 @@ Plug 'junegunn/limelight'
  Plug 'editorconfig/editorconfig-vim'
 "}
 
-" Windows-on full screen,
-Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
+" GUI full screen option {
+Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 "}
 
 " Status line {
@@ -76,6 +93,21 @@ Plug 'xolox/vim-shell', {'on': [] } | Plug 'xolox/vim-misc', {'on': [] }
 
 " Vim-fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
+
+" Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
+if os =~ 'linux'
+  " For ruby {
+    " rbenv
+    Plug 'sstephenson/rbenv', {'dir': '$HOME/.rbenv' }
+    " ruby-build
+    Plug 'sstephenson/ruby-build', {'dir': '$HOME/.rbenv/plugins/ruby-build' }
+    " rbenv-gem-rehash
+    Plug 'sstephenson/rbenv-gem-rehash', {'dir': '$HOME/.rbenv/plugins/rbenv-gem-rehash' }
+  "}
+
+  " fzf command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
+endif
 
 call plug#end()
 
@@ -167,20 +199,15 @@ set undodir=~/.vim/vimundo
 
 set laststatus=2
 
-if has("win32")
-    call plug#load('vim-misc', 'vim-shell')
-endif
-
-
 " GUI options {
 if has("gui_running")
+    call plug#load('vim-misc', 'vim-shell')
     set guioptions-=m    " remove menu bar
     set guioptions-=T    " remove toolbar
     set guioptions-=r    " remove right-hand scroll bar
     set guioptions-=L    " remove left-hand scroll bar
-"	set background=dark
-"	highlight Normal guibg=black guifg=white
-"    let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
+    set background=dark
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
     if has('gui_win32')                    " Ha Windowson futó grafikus felület esetén
         let &guifont = "DejaVu Sans Mono for Powerline:h12" " beállítja ezt a betűtípust és méretet
         au GUIEnter * simalt ~m              " Maximalizálva induljon az ablak
@@ -291,32 +318,11 @@ augroup javascript
 augroup END
 " }
 
-" Functions
-function! GetRunningOS()
-  if has("win32")
-    return "win"
-  endif
-    if has("unix")
-      if system('uname')=~'Darwin'
-        return "mac"
-      else
-        return "linux"
-      endif
-    endif
-  endfunction
-  let os=GetRunningOS()
-
 " Reload vimrc {
 augroup reload_vimrc
-  if os =~ 'win'
-    autocmd!
-    autocmd bufwritepost $HOME/_vimrc nested source %  " When vimrc is editied, reload it
-    set nobackup                                  " Don't make backups
-  elseif os =~ 'linux'
-    autocmd!
-    autocmd bufwritepost .vimrc nested source %         " When vimrc is editied, reload it
-    set nobackup                                  " Don't make backups
-  endif
+  autocmd!
+  autocmd bufwritepost $HOME/.vimrc nested source %  " When vimrc is editied, reload it
+  set nobackup                                       " Don't make backups
 augroup END
 " }
 
