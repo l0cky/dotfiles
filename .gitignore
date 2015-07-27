@@ -1,2 +1,5 @@
 # tmux plugins directory
 tmux/.tmux/plugins/
+
+# tmux-sidebar plugin
+tmux/.tmux/sidebar/
