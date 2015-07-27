@@ -49,6 +49,9 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'junegunn/goyo.vim'
 "}
 
+" limelight.vim, hyperfocus-writing in Vim
+Plug 'junegunn/limelight'
+
 " Editorconfig {
  Plug 'editorconfig/editorconfig-vim'
 "}
