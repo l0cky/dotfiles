@@ -12,3 +12,7 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # for direnv
 eval "$(direnv hook bash)"
+
+# bashmarks plugin
+[ -f "$HOME/.dotfiles/bash/plugins/bashmarks/bashmarks.sh" ] && source "$HOME/.dotfiles/bash/plugins/bashmarks/bashmarks.sh"
+
