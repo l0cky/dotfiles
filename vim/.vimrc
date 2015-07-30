@@ -97,6 +97,9 @@ Plug 'tpope/vim-fugitive'
 " tmux-complete.vim
 Plug 'wellle/tmux-complete.vim'
 
+" noecomplete.vim
+Plug 'Shougo/neocomplete.vim'
+
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
 Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins/bashmarks' }
@@ -322,6 +325,13 @@ augroup END
 augroup javascript
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
+
+" Enable omni completion
+augroup omnif
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+augroup END
 " }
 
 " Reload vimrc {
@@ -367,4 +377,17 @@ let g:promptline_preset = {
   \'y' : [ '\$' ],
   \'options': {
     \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
+
+" tmux-complete.vim config {
+let g:tmuxcomplete#trigger = ''
+" }
+
+" Neocomplete config section {
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" }
 
