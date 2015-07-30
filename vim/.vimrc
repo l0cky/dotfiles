@@ -325,6 +325,13 @@ augroup END
 augroup javascript
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 augroup END
+
+" Enable omni completion
+augroup omnif
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+augroup END
 " }
 
 " Reload vimrc {
