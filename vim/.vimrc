@@ -371,3 +371,16 @@ let g:promptline_preset = {
   \'options': {
     \'left_only_sections': [ 'c', 'a', 'b', 'z',  'x', 'y', 'warn' ] }}
 
+" tmux-complete.vim config {
+let g:tmuxcomplete#trigger = ''
+" }
+
+" Neocomplete config section {
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" }
+
