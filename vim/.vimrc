@@ -94,6 +94,9 @@ Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 " Vim-fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" tmux-complete.vim
+Plug 'wellle/tmux-complete.vim'
+
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
 Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins/bashmarks' }
