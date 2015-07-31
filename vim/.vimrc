@@ -38,7 +38,7 @@ call plug#begin('$HOME/.vim/plugged')
 " Plug 'junegunn/vim-easy-align'
 
 " Group dependencies, vim-snippets depends on ultisnips
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -391,3 +391,8 @@ let g:neocomplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }
 
+" Ultisnips configs {
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpBackwardTrigger="<c-l>"
+let g:UltiSnipsEditSplit="vertical"
+" }
