@@ -391,3 +391,8 @@ let g:neocomplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }
 
+" Ultisnips configs {
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpBackwardTrigger="<c-l>"
+let g:UltiSnipsEditSplit="vertical"
+" }
