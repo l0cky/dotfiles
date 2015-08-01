@@ -399,3 +399,8 @@ let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpBackwardTrigger="<c-l>"
 let g:UltiSnipsEditSplit="vertical"
 " }
+
+" indentLine config {
+let g:indentLine_color_term = 241
+let g:indentLine_color_gui = '#696969'
+" }
