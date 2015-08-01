@@ -100,6 +100,9 @@ Plug 'wellle/tmux-complete.vim'
 " noecomplete.vim
 Plug 'Shougo/neocomplete.vim'
 
+" indentLine.vim
+Plug 'junegunn/indentLine'
+
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
 Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins/bashmarks' }
@@ -395,4 +398,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpBackwardTrigger="<c-l>"
 let g:UltiSnipsEditSplit="vertical"
+" }
+
+" indentLine config {
+let g:indentLine_color_term = 241
+let g:indentLine_color_gui = '#696969'
 " }
