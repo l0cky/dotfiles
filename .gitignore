@@ -4,5 +4,10 @@ tmux/.tmux/plugins/
 # tmux-sidebar plugin
 tmux/.tmux/sidebar/
 
+# ignore tmux res plugin
+tmux/.tmux/resurrect
+
 # bash plugins folder
 bash/plugins/
+
+
