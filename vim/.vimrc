@@ -121,6 +121,8 @@ if os =~ 'linux'
   Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'yes \| ./install' }
 endif
 
+Plug 'scrooloose/syntastic'
+
 call plug#end()
 
 " Functions {
@@ -404,3 +406,15 @@ let g:UltiSnipsEditSplit="vertical"
 let g:indentLine_color_term = 241
 let g:indentLine_color_gui = '#696969'
 " }
+
+" Syntastic config {
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" }
+
