@@ -20,6 +20,9 @@
 [mergetool]
   prompt = false
 
+[push]
+  default = simple
+
 [alias]
   st = "status"
   br = "branch"
