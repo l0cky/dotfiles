@@ -8,11 +8,11 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # for the nice promptline
-[ -f "$HOME/.dotfiles/bash/shell_promptline.sh" ] && source "$HOME/.dotfiles/bash/shell_promptline.sh"
+[ -f "$HOME/.local/dotfiles/bash/shell_promptline.sh" ] && source "$HOME/.local/dotfiles/bash/shell_promptline.sh"
 
 # for direnv
 eval "$(direnv hook bash)"
 
 # bashmarks plugin
-[ -f "$HOME/.dotfiles/bash/plugins/bashmarks/bashmarks.sh" ] && source "$HOME/.dotfiles/bash/plugins/bashmarks/bashmarks.sh"
+[ -f "$HOME/.local/dotfiles/bash/plugins/bashmarks/bashmarks.sh" ] && source "$HOME/.local/dotfiles/bash/plugins/bashmarks/bashmarks.sh"
 
