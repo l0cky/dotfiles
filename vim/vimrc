@@ -60,6 +60,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-scripts/EditPlus'
 Plug 'vim-scripts/xoria256.vim'
+Plug 'crusoexia/vim-monokai'
 "}
 
 " Goyo.vim, clear the window look {
@@ -168,7 +169,7 @@ endtry
 
 set ls=2            " always show status line
 set t_Co=256
-colorscheme jellybeans
+colorscheme monokai
 "set background=dark
 "highlight Normal guibg=black guifg=white
 " }
@@ -241,7 +242,7 @@ endif
 " }
 
 let g:lightline = {
-  \ 'colorscheme': 'jellybeans',
+  \ 'colorscheme': 'default',
   \ 'active': {
   \  'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'filename' ] ]
