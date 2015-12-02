@@ -7,6 +7,9 @@ tmux/tmux/sidebar/
 # ignore tmux res plugin
 tmux/tmux/resurrect
 
+# tmux link, the reason is some bug
+tmux/tmux/tmux
+
 # bash plugins folder
 bash/plugins/
 
