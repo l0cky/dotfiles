@@ -107,6 +107,9 @@ Plug 'junegunn/indentLine'
 " Vimwiki
 Plug 'Vimwiki/Vimwiki'
 
+" Taksiki
+Plug 'tbabej/taskwiki'
+
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
 Plug 'huyng/bashmarks', { 'dir': '$HOME/.dotfiles/bash/plugins/bashmarks' }
@@ -398,6 +401,12 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }
 
 " Ultisnips configs {
