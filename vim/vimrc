@@ -288,7 +288,7 @@ endfunction
 function! MyFugitive()
   if exists("*fugitive#head")
     let _ = fugitive#head()
-    return strlen(_) ? "\ue0a0 "._ : ''
+    return strlen(_) ? "\ue822 "._ : ''
   endif
   return ''
 endfunction
@@ -313,6 +313,8 @@ vmap <Leader>P "+P
 nmap <Leader>P "+P
 
 nmap <Leader><Leader> V
+
+"nmap <Leader>wn <Plug>VimwikiNextLink
 " }
 "
 " Specials {
@@ -379,6 +381,15 @@ let is_direnv_slice = {
     \'}']}
 
 let g:promptline_theme = 'jelly'
+let g:promptline_symbols = {
+    \ 'left'       : '',
+    \ 'right'      : '',
+    \ 'left_alt'   : '',
+    \ 'right_alt'  : '',
+    \ 'dir_sep'    : '  ',
+    \ 'truncation' : '\ue285',
+    \ 'vcs_branch' : "\ue822  ",
+    \ 'space'      : ' '}
 let g:promptline_preset = {
   \'c' : [ promptline#slices#user() ],
   \'b' : [ promptline#slices#cwd() ],
@@ -431,3 +442,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " }
 
+" Vimwiki configs {
+let g:vimwiki_table_mappings = 0
+" }
