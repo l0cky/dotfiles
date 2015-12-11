@@ -111,7 +111,7 @@ Plug 'junegunn/indentLine'
 Plug 'Vimwiki/Vimwiki'
 
 " Taksiki
-Plug 'tbabej/taskwiki'
+"Plug 'tbabej/taskwiki'
 
 " Some github repos I use as plugins outside from ~/.vim/plugged, and use vim-plug as their update manager
 " huyng/bashmarks
