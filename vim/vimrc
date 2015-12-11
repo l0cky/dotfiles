@@ -447,4 +447,5 @@ let g:syntastic_check_on_wq = 0
 
 " Vimwiki configs {
 let g:vimwiki_table_mappings = 0
+let g:vimwiki_folding = 'expr'
 " }
