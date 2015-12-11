@@ -7,12 +7,14 @@ eval "$(rbenv init -)"
 # for ruby-build
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
-# for the nice promptline
-[ -f "$HOME/.local/dotfiles/bash/shell_promptline.sh" ] && source "$HOME/.local/dotfiles/bash/shell_promptline.sh"
+# for the nice promptline in pts
+term_type=$(tty | grep -oE "tty|pts")
+if [ ${term_type} = "pts" ];then
+  [ -f "$HOME/.local/dotfiles/bash/shell_promptline.sh" ] && source "$HOME/.local/dotfiles/bash/shell_promptline.sh"
+fi
 
 # for direnv
 eval "$(direnv hook bash)"
 
 # bashmarks plugin
 [ -f "$HOME/.local/dotfiles/bash/plugins/bashmarks/bashmarks.sh" ] && source "$HOME/.local/dotfiles/bash/plugins/bashmarks/bashmarks.sh"
-
