@@ -93,7 +93,10 @@ Plug 'xolox/vim-misc', {'on': [] } | Plug 'xolox/vim-shell', {'on': [] }
 "}
 
 " Vim-fugitive - Git wrapper
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
+
+" Vimagit
+Plug 'jreybert/vimagit'
 
 " tmux-complete.vim
 Plug 'wellle/tmux-complete.vim'
