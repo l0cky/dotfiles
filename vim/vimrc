@@ -383,15 +383,15 @@ let is_direnv_slice = {
     \'  fi',
     \'}']}
 
-let g:promptline_theme = 'jelly'
+let g:promptline_theme = 'lightline'
 let g:promptline_symbols = {
     \ 'left'       : '',
     \ 'right'      : '',
     \ 'left_alt'   : '',
     \ 'right_alt'  : '',
     \ 'dir_sep'    : '  ',
-    \ 'truncation' : '\ue285',
-    \ 'vcs_branch' : "\ue822  ",
+    \ 'truncation' : "\ue852",
+    \ 'vcs_branch' : "\ue822 ",
     \ 'space'      : ' '}
 let g:promptline_preset = {
   \'c' : [ promptline#slices#user() ],
