@@ -12,6 +12,7 @@ declare -A links=(\
   ["tmux/tmux/"]=".tmux/"\
   ["tmux/tmux.conf"]=".tmux.conf"\
   ["vim/vimrc"]=".vimrc"\
+  ["bin/extvga"]="bin/extvga"\
   )
 
 # A konfig fájlok linkelése

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+xrandr --auto
+
+sleep 3
+
+while getopts ":h:a" opts; do
+  case "${opts}" in
+    h)
+      xrandr --output LVDS-0 --mode 1920x1200 --output VGA-0 --right-of LVDS-0
+      ;;
+    a)
+      xrandr --output LVDS-0 --mode 1920x1200 --output VGA-0 --left-of LVDS-0
+      ;;
+    \?)
+      echo "Add minimum 1 option: -${OPTARG}"
+      ;;
+  esac
+done
+
+exit 0
