@@ -7,17 +7,17 @@ echo "$base_dir, $HOME"
 # Konfig fájlpárok meghatározása, honnan, hova
 declare -A links=(\
   ["bash/bash_aliases"]=".bash_aliases"\
-	["git/gitconfig"]=".gitconfig"\
+  ["git/gitconfig"]=".gitconfig"\
   ["git/gitignore_global"]=".gitignore_global"\
   ["tmux/tmux/"]=".tmux/"\
   ["tmux/tmux.conf"]=".tmux.conf"\
-	["vim/vimrc"]=".vimrc"\
+  ["vim/vimrc"]=".vimrc"\
   )
 
 # A konfig fájlok linkelése
 for conf in "${!links[@]}"; do
-	echo "Create link: $conf -> ${links["$conf"]}";
-	ln -sf ${base_dir}/$conf ${HOME}/${links["$conf"]};
+  echo "Create link: $conf -> ${links["$conf"]}";
+  ln -sf ${base_dir}/$conf ${HOME}/${links["$conf"]};
 done
 
 # Sor hozzáadása funkció
